@@ -37,10 +37,10 @@ INSTALLED_APPS = [
     "django.contrib.sessions",
     "django.contrib.messages",
     "django.contrib.staticfiles",
+    "django_filters",
     "core",
     "rest_framework",
     "rest_framework.authtoken",
-    "debug_toolbar",
     "rest_framework_xml",
     "djoser",
     "rest_framework_simplejwt",
@@ -55,7 +55,6 @@ MIDDLEWARE = [
     "django.contrib.auth.middleware.AuthenticationMiddleware",
     "django.contrib.messages.middleware.MessageMiddleware",
     "django.middleware.clickjacking.XFrameOptionsMiddleware",
-    "debug_toolbar.middleware.DebugToolbarMiddleware",
 ]
 
 ROOT_URLCONF = "LittleLemonAPI.urls"
@@ -126,9 +125,9 @@ USE_TZ = True
 
 STATIC_URL = "static/"
 
-STATICFILES_DIRS = [
-    "core/static",
-]
+# STATICFILES_DIRS = [
+#     "core/static",
+# ]
 
 # Default primary key field type
 # https://docs.djangoproject.com/en/4.2/ref/settings/#default-auto-field
@@ -138,11 +137,11 @@ DEFAULT_AUTO_FIELD = "django.db.models.BigAutoField"
 INTERNAL_IPS = ["127.0.0.1"]
 
 REST_FRAMEWORK = {
-    "DEFAULT_FILTER_BACKENDS": [
-        "rest_framework.filters.OrderingFilter",
-        "rest_framework.filters.SearchFilter",
-        "django_filters.rest_framework.DjangoFilterBackend",
-    ],
+    # "DEFAULT_FILTER_BACKENDS": [
+    #     "rest_framework.filters.OrderingFilter",
+    #     "rest_framework.filters.SearchFilter",
+    #     "django_filters.rest_framework.DjangoFilterBackend",
+    # ],
     # "DEFAULT_PARSER_CLASSES": ("rest_framework_xml.parsers.XMLParser"),
     "DEFAULT_RENDERER_CLASSES": [
         "rest_framework.renderers.JSONRenderer",
@@ -159,8 +158,8 @@ REST_FRAMEWORK = {
         "anon": "2/minute",
         "user": "5/minute",
     },
-    "DEFAULT_PAGINATION_CLASS": "rest_framework.pagination.PageNumberPagination",
-    "PAGE_SIZE": 3,
+    # "DEFAULT_PAGINATION_CLASS": "rest_framework.pagination.PageNumberPagination",
+    # "PAGE_SIZE": 3,
 }
 
 DJOSER = {"USER_ID_FIELD": "username"}

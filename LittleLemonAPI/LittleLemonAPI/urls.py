@@ -22,14 +22,9 @@ from rest_framework_simplejwt.views import (
     TokenBlacklistView,
 )
 
-from rest_framework import routers
-
-router = routers.DefaultRouter()
-
 urlpatterns = [
     path("admin/", admin.site.urls),
     path("api/", include("core.urls")),
-    path("__debug__/", include("debug_toolbar.urls")),
     path("auth/", include("djoser.urls")),
     path("auth/", include("djoser.urls.authtoken")),
     path("api/token/", TokenObtainPairView.as_view(), name="token_obtain_pair"),
